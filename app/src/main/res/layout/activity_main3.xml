@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrnd"
+    tools:context=".MainActivity3">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBack2"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="76dp"
+        android:background="@drawable/buttons_style"
+        android:fontFamily="@font/almendra_bold"
+        android:text="Play Again"
+        android:textAllCaps="false"
+        android:textSize="17dp"
+        android:textColor="#4f260f"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtFinal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="TextView"
+        android:fontFamily="@font/almendra_bold"
+        android:textColor="#dbc93d"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="162dp"
+        android:layout_height="198dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBack2"
+        app:layout_constraintEnd_toEndOf="@+id/btnBack2"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="@+id/btnBack2"
+        app:srcCompat="@drawable/fail" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="333dp"
+        android:layout_height="114dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:srcCompat="@drawable/lose" />
+</androidx.constraintlayout.widget.ConstraintLayout>
