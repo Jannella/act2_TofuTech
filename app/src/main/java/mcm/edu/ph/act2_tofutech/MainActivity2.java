@@ -7,12 +7,14 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity2 extends AppCompatActivity{
+public class MainActivity2 extends AppCompatActivity implements View.OnClickListener {
 
     TextView Final;
     Button Back;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class MainActivity2 extends AppCompatActivity{
         Bundle bundle = intent.getExtras();
         outcomes = intent.getIntExtra("OUTCOMES", 0);
 
-        switch(outcomes){
+        switch (outcomes) {
             case 2:
                 String s1 = bundle.getString("STRING_S1");
                 Final.setText(s1);
@@ -47,18 +49,20 @@ public class MainActivity2 extends AppCompatActivity{
                 Final.setText(s4);
                 break;
         }
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.click);
-        Back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mp.start();
-                switch (v.getId()) {
-                    case R.id.btnBack:
-                        Intent back = new Intent(MainActivity2.this, Start.class);
-                        startActivity(back);
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                        break;
-                }
-            }
-        });
+
+        Back.setOnClickListener(this);
+    }
+
+    public void onClick(View v) {
+        mp = MediaPlayer.create(this, R.raw.click);
+        mp.start();
+        switch (v.getId()) {
+            case R.id.btnBack:
+                Intent back = new Intent(MainActivity2.this, Start.class);
+                startActivity(back);
+                Music.bg.stop();
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                break;
+        }
     }
 }

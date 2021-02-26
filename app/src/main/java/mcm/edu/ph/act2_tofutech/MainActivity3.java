@@ -9,10 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity3 extends AppCompatActivity{
+public class MainActivity3 extends AppCompatActivity implements View.OnClickListener{
 
     TextView Final2;
     Button Back2;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +46,21 @@ public class MainActivity3 extends AppCompatActivity{
                 String f4 = bundle.getString("STRING_F4");
                 Final2.setText(f4);
                 break;
-
         }
 
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.click);
-        Back2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mp.start();
-                switch (v.getId()) {
-                    case R.id.btnBack2:
-                        Intent back = new Intent(MainActivity3.this, Start.class);
-                        startActivity(back);
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                        break;
-                }
-            }
-        });
+        Back2.setOnClickListener(this);
+    }
+
+    public void onClick(View v) {
+        mp = MediaPlayer.create(this, R.raw.click);
+        mp.start();
+        switch (v.getId()) {
+            case R.id.btnBack2:
+                Intent back = new Intent(MainActivity3.this, Start.class);
+                startActivity(back);
+                Music.bg.stop();
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                break;
+        }
     }
 }
